@@ -39,7 +39,8 @@ dependencies:
   chewie:
     git:
       url: https://github.com/balvinderz/chewie.git
-
+  shared_preferences : any
+  floor: any
   provider: any
 dependency_overrides:
   video_player:
@@ -48,6 +49,8 @@ dependency_overrides:
       path: packages/video_player/video_player
       ref: video_player_macos
 dev_dependencies:
+  floor_generator: ^0.14.0
+  build_runner: ^1.7.3
   flutter_test:
     sdk: flutter
 
@@ -61,7 +64,8 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
+  assets:
+    - assets/
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

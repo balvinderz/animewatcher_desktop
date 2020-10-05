@@ -1,6 +1,7 @@
 import 'package:animewatcher_desktop/api/gogoanime_api.dart';
 import 'package:animewatcher_desktop/models/anime.dart';
 import 'package:animewatcher_desktop/screens/video_screen.dart';
+import 'package:animewatcher_desktop/widgets/psyduck_loading_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -19,11 +20,12 @@ class _LoadingDialogBoxState extends State<LoadingDialogBox> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Column(
+
     mainAxisSize: MainAxisSize.min,
       children: [
         Center(child: Text("Loading Url"),),
         SizedBox(height: 20,),
-        Center(child: CircularProgressIndicator(),)
+        PsyduckLoadingIndicator()
       ],
     );
 
@@ -39,8 +41,8 @@ class _LoadingDialogBoxState extends State<LoadingDialogBox> {
   void myAsyncMethod() async {
     GogoAnimeScraper scraper = GogoAnimeScraper();
    String url =  await scraper.getVideoUrl(widget.anime.link);
-    await Navigator.push(context, MaterialPageRoute(builder: (_)=> VideoScreen(url)));
-    Navigator.pop(context);
+   await Navigator.push(context, MaterialPageRoute(builder: (_)=> VideoScreen(url)));
+   Navigator.pop(context);
 
 
   }

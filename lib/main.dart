@@ -1,5 +1,7 @@
+import 'package:animewatcher_desktop/bloc/favourite_bloc.dart';
 import 'package:animewatcher_desktop/screens/app.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());

@@ -1,3 +1,4 @@
+import 'package:animewatcher_desktop/screens/favourite_screen.dart';
 import 'package:animewatcher_desktop/screens/sub_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +31,7 @@ class _AppState extends State<App> {
 
             destinations: [
               NavigationRailDestination(icon: Icon(Icons.favorite_border,),label: Text("Sub")),
-              NavigationRailDestination(icon: Icon(Icons.favorite_border),label: Text("Dub")),
+              NavigationRailDestination(icon: Icon(Icons.favorite_border),label: Text("Favourite")),
               NavigationRailDestination(icon: Icon(Icons.download_sharp),label: Text(""))
             ],
 
@@ -39,8 +40,13 @@ class _AppState extends State<App> {
           // This is the main content.
           Expanded(
             child: Center(
-              child: SubScreen()
-
+              child: IndexedStack(
+                index: index,
+                children: [
+                  SubScreen(),
+                  FavouriteScreen()
+                ],
+              )
             ),
           )
         ],

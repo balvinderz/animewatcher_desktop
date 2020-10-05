@@ -1,5 +1,4 @@
 import 'package:animewatcher_desktop/bloc/video_screen_bloc.dart';
-import 'package:animewatcher_desktop/models/anime.dart';
 import 'package:chewie/chewie.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

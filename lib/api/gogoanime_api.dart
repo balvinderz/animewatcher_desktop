@@ -43,7 +43,6 @@ class GogoAnimeScraper
   Future<String> getVideoUrl(String animeEpisodeUrl) async{
     Response response = await Dio().get(animeEpisodeUrl);
     if(response.statusCode ==200) {
-      //  print(response.statusCode);
       final episodePageDocument = parse(response.data);
       String vidStreamUrl = "https:" + episodePageDocument
           .querySelector('iframe')
@@ -52,7 +51,6 @@ class GogoAnimeScraper
 
       response = await _dio.get(vidStreamUrl);
      final json =  jsonDecode(response.data);
-      print(json['source'][0]['file']);
       return json['source'][0]['file'];
 
     }
