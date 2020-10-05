@@ -78,7 +78,7 @@ class __VideoScreenState extends State<_VideoScreen> {
         allowFullScreen: true,
 
         looping: true);
-
+    _chewieController.enterFullScreen();
 
   }
 

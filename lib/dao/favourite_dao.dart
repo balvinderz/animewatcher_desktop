@@ -4,7 +4,7 @@ import 'package:floor/floor.dart';
 abstract class FavouriteDao
 {
   @Query("SELECT * FROM Favourite")
-  Future<List<Favourite>> findAnime();
+  Stream<List<Favourite>> findAnime();
   @insert
   Future<void> insertFavourite(Favourite favourite);
   @delete

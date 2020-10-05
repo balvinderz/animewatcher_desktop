@@ -1,5 +1,5 @@
-import 'package:animewatcher_desktop/api/gogoanime_api.dart';
 import 'package:animewatcher_desktop/models/anime.dart';
+import 'package:animewatcher_desktop/scraper/gogoanime_api.dart';
 import 'package:animewatcher_desktop/widgets/loading_dialog_box.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

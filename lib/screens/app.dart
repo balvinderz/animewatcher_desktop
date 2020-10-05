@@ -1,4 +1,5 @@
 import 'package:animewatcher_desktop/screens/favourite_screen.dart';
+import 'package:animewatcher_desktop/screens/search_screen.dart';
 import 'package:animewatcher_desktop/screens/sub_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,6 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(title:Text( "Anime Watcher"),),
       body: Row(
         children: [
@@ -30,9 +30,9 @@ class _AppState extends State<App> {
             labelType: NavigationRailLabelType.selected,
 
             destinations: [
-              NavigationRailDestination(icon: Icon(Icons.favorite_border,),label: Text("Sub")),
+              NavigationRailDestination(icon: Icon(Icons.watch_later_rounded,),label: Text("Watch ")),
               NavigationRailDestination(icon: Icon(Icons.favorite_border),label: Text("Favourite")),
-              NavigationRailDestination(icon: Icon(Icons.download_sharp),label: Text(""))
+              NavigationRailDestination(icon: Icon(Icons.search),label: Text("Search"))
             ],
 
           ),
@@ -44,7 +44,8 @@ class _AppState extends State<App> {
                 index: index,
                 children: [
                   SubScreen(),
-                  FavouriteScreen()
+                  FavouriteScreen(),
+                  SearchScreen()
                 ],
               )
             ),

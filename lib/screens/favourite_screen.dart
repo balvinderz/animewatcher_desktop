@@ -1,6 +1,7 @@
 import 'package:animewatcher_desktop/bloc/favourite_bloc.dart';
 import 'package:animewatcher_desktop/widgets/anime_card.dart';
 import 'package:animewatcher_desktop/widgets/favourite_card.dart';
+import 'package:animewatcher_desktop/widgets/psyduck_loading_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -30,9 +31,10 @@ class __FavouriteScreenState extends State<_FavouriteScreen> {
       // TODO: implement build
       return bloc.isLoading
           ? Center(
-        child: CircularProgressIndicator(),
+        child: PsyduckLoadingIndicator(),
       )
           : GridView.builder(
+
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 6,
               childAspectRatio: 4/5

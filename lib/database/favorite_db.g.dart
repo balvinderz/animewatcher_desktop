@@ -96,7 +96,7 @@ class _$FavouriteDatabase extends FavouriteDatabase {
 
 class _$FavouriteDao extends FavouriteDao {
   _$FavouriteDao(this.database, this.changeListener)
-      : _queryAdapter = QueryAdapter(database),
+      : _queryAdapter = QueryAdapter(database, changeListener),
         _favouriteInsertionAdapter = InsertionAdapter(
             database,
             'Favourite',
@@ -105,7 +105,8 @@ class _$FavouriteDao extends FavouriteDao {
                   'imageUrl': item.imageUrl,
                   'name': item.name,
                   'gogoAnimeUrl': item.gogoAnimeUrl
-                }),
+                },
+            changeListener),
         _favouriteDeletionAdapter = DeletionAdapter(
             database,
             'Favourite',
@@ -115,7 +116,8 @@ class _$FavouriteDao extends FavouriteDao {
                   'imageUrl': item.imageUrl,
                   'name': item.name,
                   'gogoAnimeUrl': item.gogoAnimeUrl
-                });
+                },
+            changeListener);
 
   final sqflite.DatabaseExecutor database;
 
@@ -134,9 +136,9 @@ class _$FavouriteDao extends FavouriteDao {
   final DeletionAdapter<Favourite> _favouriteDeletionAdapter;
 
   @override
-  Future<List<Favourite>> findAnime() async {
-    return _queryAdapter.queryList('SELECT * FROM Favourite',
-        mapper: _favouriteMapper);
+  Stream<List<Favourite>> findAnime() {
+    return _queryAdapter.queryListStream('SELECT * FROM Favourite',
+        queryableName: 'Favourite', isView: false, mapper: _favouriteMapper);
   }
 
   @override

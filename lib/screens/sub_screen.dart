@@ -1,5 +1,6 @@
 import 'package:animewatcher_desktop/bloc/sub_screen_bloc.dart';
 import 'package:animewatcher_desktop/widgets/anime_card.dart';
+import 'package:animewatcher_desktop/widgets/psyduck_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +30,7 @@ class __SubScreenState extends State<_SubScreen> {
     // TODO: implement build
     return bloc.loading
         ? Center(
-            child: CircularProgressIndicator(),
+            child: PsyduckLoadingIndicator(),
           )
         : GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

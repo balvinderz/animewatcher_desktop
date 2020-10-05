@@ -11,10 +11,17 @@ class FavouriteBloc extends ChangeNotifier
   List<Favourite> favourites;
   void loadFavourite() async{
     FavouriteDatabase database = await $FloorFavouriteDatabase.databaseBuilder('app_database.db').build();
-    favourites = await database.favouriteDao.findAnime();
-    isLoading = false;
 
-    notifyListeners();
+    Stream<List<Favourite>> event  =  database.favouriteDao.findAnime();
+    event.listen((event) {
+      favourites = event;
+
+      isLoading = false;
+
+      notifyListeners();
+
+    });
+
 
 
   }

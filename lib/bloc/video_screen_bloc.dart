@@ -1,4 +1,3 @@
-import 'package:animewatcher_desktop/api/gogoanime_api.dart';
 import 'package:animewatcher_desktop/models/anime.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';

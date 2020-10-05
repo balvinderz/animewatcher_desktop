@@ -1,5 +1,5 @@
-import 'package:animewatcher_desktop/api/gogoanime_api.dart';
 import 'package:animewatcher_desktop/models/anime.dart';
+import 'package:animewatcher_desktop/scraper/gogoanime_api.dart';
 import 'package:animewatcher_desktop/screens/video_screen.dart';
 import 'package:animewatcher_desktop/widgets/psyduck_loading_indicator.dart';
 import 'package:flutter/cupertino.dart';
@@ -41,6 +41,8 @@ class _LoadingDialogBoxState extends State<LoadingDialogBox> {
   void myAsyncMethod() async {
     GogoAnimeScraper scraper = GogoAnimeScraper();
    String url =  await scraper.getVideoUrl(widget.anime.link);
+   print(url);
+
    await Navigator.push(context, MaterialPageRoute(builder: (_)=> VideoScreen(url)));
    Navigator.pop(context);
 

@@ -17,7 +17,6 @@ class _FavouriteCardState extends State<FavouriteCard> {
   FavouriteBloc bloc;
 
   final Color colorLight = Color(0xFFE5E1DE);
-  bool clicked = false;
 
 
   // TODO: implement build
@@ -42,18 +41,7 @@ class _FavouriteCardState extends State<FavouriteCard> {
                         ,),
                     )),
               ),
-              Padding(
-                padding: const EdgeInsets.only(right : 15.0,top: 15),
-                child: Align(
 
-                  alignment: Alignment.topRight,
-                  child: IconButton(icon : Icon(clicked ? Icons.favorite : Icons.favorite_border,size: 30,color: clicked ? Colors.pink : null,),onPressed: (){
-                    setState(() {
-                      clicked = !clicked;
-                    });
-                  },),
-                ),
-              ),
 
               Positioned(
                   bottom: -1,
