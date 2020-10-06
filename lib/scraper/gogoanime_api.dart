@@ -104,4 +104,29 @@ class GogoAnimeScraper {
     } else
       return null;
   }
+
+  Future<Iterable<Anime>> getAnimeList(int page) async {
+    List<Anime> animeList = [];
+
+    String url = "https://www25.gogoanimes.tv/anime-list.html?page=$page";
+    Response response = await Dio().get(url);
+    if (response.statusCode == 200) {
+      final animeListDocument = parse(response.data);
+      List<dom.Element> lis =
+          animeListDocument.querySelectorAll("ul.listing > li");
+      for (dom.Element element in lis) {
+        String link = "https://www25.gogoanimes.tv" +
+            element.querySelector("a").attributes['href'];
+        String liHtml = element.attributes['title'];
+        final htmlParser = parse(liHtml);
+        String imageUrl = htmlParser.querySelector("img").attributes['src'];
+        String title = (htmlParser.querySelector("a").text);
+
+        Anime anime =
+            Anime(link: link, name: title, episodeNo: "", imageLink: imageUrl);
+        animeList.add(anime);
+      }
+    }
+    return animeList;
+  }
 }

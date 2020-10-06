@@ -32,7 +32,8 @@ dependencies:
   html : any
   flushbar: any
   url_launcher: any
-  url_launcher_windows : any
+  incrementally_loading_listview: any
+
   dio: any
   video_player:
     git:

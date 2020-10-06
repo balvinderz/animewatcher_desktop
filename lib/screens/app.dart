@@ -1,3 +1,4 @@
+import 'package:animewatcher_desktop/screens/anime_list_screen.dart';
 import 'package:animewatcher_desktop/screens/favourite_screen.dart';
 import 'package:animewatcher_desktop/screens/search_screen.dart';
 import 'package:animewatcher_desktop/screens/sub_screen.dart';
@@ -32,7 +33,8 @@ class _AppState extends State<App> {
             destinations: [
               NavigationRailDestination(icon: Icon(Icons.watch_later_rounded,),label: Text("Watch ")),
               NavigationRailDestination(icon: Icon(Icons.favorite_border),label: Text("Favourite")),
-              NavigationRailDestination(icon: Icon(Icons.search),label: Text("Search"))
+              NavigationRailDestination(icon: Icon(Icons.search),label: Text("Search")),
+              NavigationRailDestination(icon: Icon(Icons.list),label: Text("Anime List"))
             ],
 
           ),
@@ -45,7 +47,8 @@ class _AppState extends State<App> {
                 children: [
                   SubScreen(),
                   FavouriteScreen(),
-                  SearchScreen()
+                  SearchScreen(),
+                  AnimeListScreen()
                 ],
               )
             ),

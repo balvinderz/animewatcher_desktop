@@ -33,16 +33,24 @@ class __SearchScreenState extends State<_SearchScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TextField(
-          onChanged: (_) {
-            bloc.searchText = _;
-          },
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: TextField(
+            onChanged: (_) {
+              bloc.searchText = _;
+            },
+            decoration: InputDecoration(
+              border: OutlineInputBorder()
+            ),
+          ),
         ),
         bloc.animeList == null
-            ? Center(
-                child: Text("Search Anime"),
-              )
-            : Expanded(
+            ? Expanded(
+              child: Center(
+                  child: Text("Search Anime"),
+                ),
+            )
+            : bloc.animeList.length ==0 ? Center(child: Text("No anime found "),) : Expanded(
                 child: GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 6, childAspectRatio: 4 / 5),
