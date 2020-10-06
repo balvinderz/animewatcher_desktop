@@ -30,6 +30,9 @@ dependencies:
   cupertino_icons: ^1.0.0
   http: any
   html : any
+  flushbar: any
+  url_launcher: any
+  url_launcher_windows : any
   dio: any
   video_player:
     git:
