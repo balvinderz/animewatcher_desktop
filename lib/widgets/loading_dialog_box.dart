@@ -52,7 +52,7 @@ class _LoadingDialogBoxState extends State<LoadingDialogBox> {
        try {
          Navigator.pop(context);
 
-         final results = await Process.run('vlca', ['$url']).then((
+         final results = await Process.run('vlc', ['$url']).then((
              ProcessResult results) {
            print(results.stdout);
          });
