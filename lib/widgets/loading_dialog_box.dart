@@ -50,6 +50,7 @@ class _LoadingDialogBoxState extends State<LoadingDialogBox> {
      {
 
        try {
+
          Navigator.pop(context);
 
          final results = await Process.run('vlc', ['$url']).then((
