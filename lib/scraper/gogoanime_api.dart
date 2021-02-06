@@ -6,7 +6,7 @@ import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart';
 import "dart:convert";
 
-String _gogoAnimeUrl = "https://www25.gogoanimes.tv/";
+String _gogoAnimeUrl = "https://gogoanime.so/";
 
 class GogoAnimeScraper {
   Dio _dio;
@@ -108,14 +108,14 @@ class GogoAnimeScraper {
   Future<Iterable<Anime>> getAnimeList(int page) async {
     List<Anime> animeList = [];
 
-    String url = "https://www25.gogoanimes.tv/anime-list.html?page=$page";
+    String url = "https://gogoanime.so/anime-list.html?page=$page";
     Response response = await Dio().get(url);
     if (response.statusCode == 200) {
       final animeListDocument = parse(response.data);
       List<dom.Element> lis =
           animeListDocument.querySelectorAll("ul.listing > li");
       for (dom.Element element in lis) {
-        String link = "https://www25.gogoanimes.tv" +
+        String link = "https://gogoanime.so" +
             element.querySelector("a").attributes['href'];
         String liHtml = element.attributes['title'];
         final htmlParser = parse(liHtml);

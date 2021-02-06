@@ -33,7 +33,7 @@ dependencies:
   flushbar: any
   url_launcher: any
   incrementally_loading_listview: any
-
+  get: any
   dio: any
   video_player:
     git:

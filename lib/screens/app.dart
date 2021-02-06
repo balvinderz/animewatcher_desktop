@@ -32,7 +32,7 @@ class _AppState extends State<App> {
 
             destinations: [
               NavigationRailDestination(icon: Icon(Icons.watch_later_rounded,),label: Text("Watch ")),
-              NavigationRailDestination(icon: Icon(Icons.favorite_border),label: Text("Favourite")),
+              // NavigationRailDestination(icon: Icon(Icons.favorite_border),label: Text("Favourite")),
               NavigationRailDestination(icon: Icon(Icons.search),label: Text("Search")),
               NavigationRailDestination(icon: Icon(Icons.list),label: Text("Anime List"))
             ],
@@ -46,7 +46,7 @@ class _AppState extends State<App> {
                 index: index,
                 children: [
                   SubScreen(),
-                  FavouriteScreen(),
+                  // FavouriteScreen(),
                   SearchScreen(),
                   AnimeListScreen()
                 ],
