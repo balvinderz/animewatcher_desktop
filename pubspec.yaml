@@ -43,6 +43,7 @@ dependencies:
   chewie:
     git:
       url: https://github.com/balvinderz/chewie.git
+      ref: 7be04d7d4e9a7881bb42ddb374c3cb50f2fa1042
   shared_preferences : any
   floor: any
   provider: any
@@ -52,6 +53,7 @@ dependency_overrides:
       url: https://github.com/cbenhagen/plugins.git
       path: packages/video_player/video_player
       ref: video_player_macos
+
 dev_dependencies:
   floor_generator: ^0.14.0
   build_runner: ^1.7.3
