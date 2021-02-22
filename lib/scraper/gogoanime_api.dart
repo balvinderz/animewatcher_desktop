@@ -6,7 +6,7 @@ import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart';
 import "dart:convert";
 
-String _gogoAnimeUrl = "https://gogoanime.so/";
+String _gogoAnimeUrl = "https://ww.gogoanimes.org";
 
 class GogoAnimeScraper {
   Dio _dio;
@@ -19,8 +19,10 @@ class GogoAnimeScraper {
     if (text.length < 3) return null;
 
     List<Anime> listOfAnime = new List();
+    print(_gogoAnimeUrl + "/search.html?keyword=$text");
     Response response =
-        await _dio.get(_gogoAnimeUrl + "/search.html?keyword=$text");
+        await _dio.get(_gogoAnimeUrl + "/search?keyword=$text");
+    print(response.request.uri);
     var searchPage = parse(response.data);
 
     List<dom.Element> lis = searchPage
@@ -94,7 +96,7 @@ class GogoAnimeScraper {
     Response response = await Dio().get(animeEpisodeUrl);
     if (response.statusCode == 200) {
       final episodePageDocument = parse(response.data);
-      String vidStreamUrl = "https:" +
+      String vidStreamUrl =
           episodePageDocument.querySelector('iframe').attributes['src'];
       vidStreamUrl = vidStreamUrl.replaceAll("streaming.php", "ajax.php");
 
@@ -108,14 +110,15 @@ class GogoAnimeScraper {
   Future<Iterable<Anime>> getAnimeList(int page) async {
     List<Anime> animeList = [];
 
-    String url = "https://gogoanime.so/anime-list.html?page=$page";
+    String url = "$_gogoAnimeUrl/anime-list?page=$page";
+    print("url is $url");
     Response response = await Dio().get(url);
     if (response.statusCode == 200) {
       final animeListDocument = parse(response.data);
       List<dom.Element> lis =
           animeListDocument.querySelectorAll("ul.listing > li");
       for (dom.Element element in lis) {
-        String link = "https://gogoanime.so" +
+        String link = "$_gogoAnimeUrl" +
             element.querySelector("a").attributes['href'];
         String liHtml = element.attributes['title'];
         final htmlParser = parse(liHtml);
