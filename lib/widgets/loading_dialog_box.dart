@@ -46,7 +46,7 @@ class _LoadingDialogBoxState extends State<LoadingDialogBox> {
     GogoAnimeScraper scraper = GogoAnimeScraper();
    String url =  await scraper.getVideoUrl(widget.anime.link);
    print(url);
-   if(Platform.isWindows)
+   if(Platform.isWindows && false )
      {
 
        try {

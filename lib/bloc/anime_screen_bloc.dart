@@ -25,7 +25,7 @@ class AnimeScreenBloc extends ChangeNotifier
   }
 
   startEpisode(int i) async {
-    String link = anime.link.replaceAll("/category", "")+ "-episode-$i";
+    String link = anime.link.replaceAll("/category", "").replaceAll("org/", "org/watch/")+ "-episode-$i";
     print(link);
 
     Anime episodeAnime = Anime(link : link,name : anime.name,episodeNo: i.toString(),imageLink: anime.imageLink);

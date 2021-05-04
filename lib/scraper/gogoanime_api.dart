@@ -58,8 +58,8 @@ class GogoAnimeScraper {
       'start_episode':
           int.parse(lis[0].querySelector("a").attributes['ep_start']) + 1,
       'end_episode':
-          int.parse(lis[lis.length - 1].querySelector("a").attributes['ep_end'])
-    });
+          int.parse(lis.last.getElementsByTagName("a").first.text.split("-")[1])});
+
 
     return null;
 
